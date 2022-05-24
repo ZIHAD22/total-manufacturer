@@ -1,27 +1,42 @@
+import { signOut } from "firebase/auth";
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
+import auth from "../../firebase.init";
 import CustomLink from "./CustomLink";
 
-const navItems = (
-  <>
-    <li>
-      <CustomLink to="/">Home</CustomLink>
-    </li>
-    <li>
-      <CustomLink to="/about">About</CustomLink>
-    </li>
-    <li>
-      <Link
-        className="btn btn-outline focus:bg-white focus:text-black"
-        to="/signIn"
-      >
-        Sign In
-      </Link>
-    </li>
-  </>
-);
-
 const NavBar = () => {
+  const [user] = useAuthState(auth);
+  const handleSignOut = () => {
+    signOut(auth);
+  };
+  const navItems = (
+    <>
+      <li>
+        <CustomLink to="/">Home</CustomLink>
+      </li>
+      <li>
+        <CustomLink to="/about">About</CustomLink>
+      </li>
+      <li>
+        {user?.uid ? (
+          <button
+            className="btn btn-outline focus:bg-white focus:text-black"
+            onClick={handleSignOut}
+          >
+            Sign Out
+          </button>
+        ) : (
+          <Link
+            className="btn btn-outline focus:bg-white focus:text-black"
+            to="/signIn"
+          >
+            Sign In
+          </Link>
+        )}
+      </li>
+    </>
+  );
   return (
     <div class="navbar">
       <div class="navbar-start">
