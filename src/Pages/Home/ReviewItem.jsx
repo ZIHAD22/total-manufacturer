@@ -5,8 +5,8 @@ const ReviewItem = () => {
     <div>
       <div className="my-10 mb-20 grid grid-rows-2">
         <div className="mx-auto block">
-          <div class="avatar">
-            <div class="w-24 rounded-full">
+          <div className="avatar">
+            <div className="w-24 rounded-full">
               <img
                 src="https://api.lorem.space/image/face?hash=92310"
                 alt="no"

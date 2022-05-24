@@ -5,12 +5,12 @@ const ToolsItem = ({
   tool: { _id, toolName, toolImg, toolDescription, minOrder, quantity, price },
 }) => {
   return (
-    <div class="card w-96 bg-base-100 shadow-xl mx-auto">
-      <figure class="px-10 pt-10">
-        <img src={toolImg} alt="Shoes" class="rounded-xl" />
+    <div className="card w-96 bg-base-100 shadow-xl mx-auto">
+      <figure className="px-10 pt-10">
+        <img src={toolImg} alt="Shoes" className="rounded-xl" />
       </figure>
-      <div class="card-body">
-        <h2 class="card-title">{toolName}</h2>
+      <div className="card-body">
+        <h2 className="card-title">{toolName}</h2>
         <p title={toolDescription}>
           <strong className="block">Description:</strong>
           {toolDescription.length > 40
@@ -26,8 +26,8 @@ const ToolsItem = ({
         <p>
           <strong>Price: ${price} per unit</strong>
         </p>
-        <div class="card-actions mx-auto mt-5">
-          <Link to={`purchase/${_id}`} class="btn btn-primary">
+        <div className="card-actions mx-auto mt-5">
+          <Link to={`purchase/${_id}`} className="btn btn-primary">
             book now
           </Link>
         </div>
