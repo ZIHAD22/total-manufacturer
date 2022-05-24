@@ -90,7 +90,6 @@ const SignUp = () => {
               Sign In
             </Link>
           </p>
-          <div className="divider">OR</div>
           <SocialLogin />
         </div>
       </div>

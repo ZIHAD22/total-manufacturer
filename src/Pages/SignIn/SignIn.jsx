@@ -41,7 +41,6 @@ const SignIn = () => {
               Create new account
             </Link>
           </p>
-          <div className="divider">OR</div>
           <SocialLogin />
         </div>
       </div>
