@@ -1,0 +1,56 @@
+[
+    {
+      "_id": 1,
+      "toolName": "Electric Drill",
+      "toolImg": "https://img.freepik.com/free-psd/cordless-electric-drill-machine-branding-mockup_439185-9819.jpg?t=st=1653398336~exp=1653398936~hmac=e731908214fa4ec96763c462b90644515e0c99abe84be127e8b00f0adf0b35f3&w=826",
+      "toolDescription": "A power drill is a tool with an electrical motor that rotates a replaceable drill bit at your choice of speeds to create a hole in a variety of materials.",
+      "minOrder": 80,
+      "quantity": 2000,
+      "price": 3400
+    },
+    {
+      "_id": 2,
+      "toolName": "Electric Drill",
+      "toolImg": "https://img.freepik.com/free-psd/cordless-electric-drill-machine-branding-mockup_439185-9819.jpg?t=st=1653398336~exp=1653398936~hmac=e731908214fa4ec96763c462b90644515e0c99abe84be127e8b00f0adf0b35f3&w=826",
+      "toolDescription": "A power drill is a tool with an electrical motor that rotates a replaceable drill bit at your choice of speeds to create a hole in a variety of materials.",
+      "minOrder": 80,
+      "quantity": 2000,
+      "price": 3400
+    },
+    {
+      "_id": 3,
+      "toolName": "Electric Drill",
+      "toolImg": "https://img.freepik.com/free-psd/cordless-electric-drill-machine-branding-mockup_439185-9819.jpg?t=st=1653398336~exp=1653398936~hmac=e731908214fa4ec96763c462b90644515e0c99abe84be127e8b00f0adf0b35f3&w=826",
+      "toolDescription": "A power drill is a tool with an electrical motor that rotates a replaceable drill bit at your choice of speeds to create a hole in a variety of materials.",
+      "minOrder": 80,
+      "quantity": 2000,
+      "price": 3400
+    },
+    {
+      "_id": 4,
+      "toolName": "Electric Drill",
+      "toolImg": "https://img.freepik.com/free-psd/cordless-electric-drill-machine-branding-mockup_439185-9819.jpg?t=st=1653398336~exp=1653398936~hmac=e731908214fa4ec96763c462b90644515e0c99abe84be127e8b00f0adf0b35f3&w=826",
+      "toolDescription": "A power drill is a tool with an electrical motor that rotates a replaceable drill bit at your choice of speeds to create a hole in a variety of materials.",
+      "minOrder": 80,
+      "quantity": 2000,
+      "price": 3400
+    },
+    {
+      "_id": 5,
+      "toolName": "Electric Drill",
+      "toolImg": "https://img.freepik.com/free-psd/cordless-electric-drill-machine-branding-mockup_439185-9819.jpg?t=st=1653398336~exp=1653398936~hmac=e731908214fa4ec96763c462b90644515e0c99abe84be127e8b00f0adf0b35f3&w=826",
+      "toolDescription": "A power drill is a tool with an electrical motor that rotates a replaceable drill bit at your choice of speeds to create a hole in a variety of materials.",
+      "minOrder": 80,
+      "quantity": 2000,
+      "price": 3400
+    },
+    {
+      "_id": 6,
+      "toolName": "Electric Drill",
+      "toolImg": "https://img.freepik.com/free-psd/cordless-electric-drill-machine-branding-mockup_439185-9819.jpg?t=st=1653398336~exp=1653398936~hmac=e731908214fa4ec96763c462b90644515e0c99abe84be127e8b00f0adf0b35f3&w=826",
+      "toolDescription": "A power drill is a tool with an electrical motor that rotates a replaceable drill bit at your choice of speeds to create a hole in a variety of materials.",
+      "minOrder": 80,
+      "quantity": 2000,
+      "price": 3400
+    }
+  ]

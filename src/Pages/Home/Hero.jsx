@@ -3,7 +3,7 @@ import React from "react";
 const Hero = () => {
   return (
     <div
-      class="hero min-h-screen bg-opacity-75 lg:rounded-lg"
+      class="hero min-h-screen lg:rounded-lg"
       style={{
         backgroundImage: `url("https://img.freepik.com/free-photo/different-construction-accessories_185193-17575.jpg?w=900")`,
         backgroundPosition: "center",
@@ -11,7 +11,7 @@ const Hero = () => {
         backgroundSize: "cover",
       }}
     >
-      <div class="hero-content flex-col text-left text-neutral-content bg-opacity-5">
+      <div class="hero-content flex-col text-left text-neutral-content">
         <div class="max-w-2xl text-black">
           <span className="text-accent mb-5 block font-bold text-xl">
             THE ULTIMATE GOAL
