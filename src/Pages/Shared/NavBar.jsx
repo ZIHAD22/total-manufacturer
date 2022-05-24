@@ -12,13 +12,19 @@ const NavBar = () => {
   };
   const navItems = (
     <>
-      <li>
+      <li className="mx-1">
         <CustomLink to="/">Home</CustomLink>
       </li>
-      <li>
+      <li className="mx-1">
         <CustomLink to="/about">About</CustomLink>
       </li>
-      <li>
+
+      {user?.displayName?.length && (
+        <li className="mx-1">
+          <CustomLink to="/profile">{user?.displayName}</CustomLink>
+        </li>
+      )}
+      <li className="mx-1">
         {user?.uid ? (
           <button
             className="btn btn-outline focus:bg-white focus:text-black"

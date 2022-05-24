@@ -1,14 +1,20 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import SocialLogin from "../Pages/Shared/SocialLogin";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { useUpdateProfile } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import auth from "../firebase.init";
 import Spinner from "../Pages/Shared/Spinner";
 import { toast } from "react-toastify";
 
 const SignUp = () => {
-  const [createUserWithEmailAndPassword, user, loading, error] =
+  let navigate = useNavigate();
+  let location = useLocation();
+  let from = location.state?.from?.pathname || "/";
+
+  const [updateProfile, updating, UpdateProfileError] = useUpdateProfile(auth);
+  const [createUserWithEmailAndPassword, user, loading, CreateUserError] =
     useCreateUserWithEmailAndPassword(auth);
   const {
     register,
@@ -19,6 +25,7 @@ const SignUp = () => {
   const handleSignUp = async (data) => {
     const { userEmail, userName, userPassword } = data;
     await createUserWithEmailAndPassword(userEmail, userPassword);
+    await updateProfile({ displayName: userName });
     reset();
   };
 
@@ -28,6 +35,7 @@ const SignUp = () => {
 
   if (user) {
     toast.success("Sign Up Success");
+    navigate(from, { replace: true });
   }
 
   return (
@@ -75,7 +83,9 @@ const SignUp = () => {
               {errors.userPassword?.message && (
                 <p className="text-red-600">{errors.userPassword?.message}</p>
               )}
-              {error && <p className="text-red-600">{error.message}</p>}
+              {CreateUserError && (
+                <p className="text-red-600">{CreateUserError.message}</p>
+              )}
               <label className="label">
                 <Link to="/resetPass" className="label-text link">
                   Forgot Password ?

@@ -8,6 +8,7 @@ import SignUp from '../SignUp/SignUp'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import './App.css'
+import RequireAuth from '../Pages/Shared/RequireAuth'
 
 function App() {
   return (
@@ -15,7 +16,14 @@ function App() {
       <NavBar />
       <Routes>
         <Route path="/" element={<Home />}></Route>
-        <Route path="/purchase" element={<Purchase />}></Route>
+        <Route
+          path="/purchase/:id"
+          element={
+            <RequireAuth>
+              <Purchase />
+            </RequireAuth>
+          }
+        ></Route>
         <Route path="/signIn" element={<SignIn />}></Route>
         <Route path="/signUp" element={<SignUp />}></Route>
       </Routes>

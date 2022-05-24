@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const ToolsItem = ({
-  tool: { toolName, toolImg, toolDescription, minOrder, quantity, price },
+  tool: { _id, toolName, toolImg, toolDescription, minOrder, quantity, price },
 }) => {
   return (
     <div class="card w-96 bg-base-100 shadow-xl mx-auto">
@@ -27,7 +27,7 @@ const ToolsItem = ({
           <strong>Price: ${price} per unit</strong>
         </p>
         <div class="card-actions mx-auto mt-5">
-          <Link to="purchase" class="btn btn-primary">
+          <Link to={`purchase/${_id}`} class="btn btn-primary">
             book now
           </Link>
         </div>

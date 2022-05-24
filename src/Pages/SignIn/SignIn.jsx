@@ -1,7 +1,7 @@
 import { async } from "@firebase/util";
 import React from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import SocialLogin from "../Shared/SocialLogin";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
@@ -11,6 +11,10 @@ import { toast } from "react-toastify";
 const SignIn = () => {
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
+  let navigate = useNavigate();
+  let location = useLocation();
+
+  let from = location.state?.from?.pathname || "/";
 
   const {
     register,
@@ -30,6 +34,7 @@ const SignIn = () => {
 
   if (user) {
     toast.success("Sign In Success");
+    navigate(from, { replace: true });
   }
 
   return (
@@ -64,6 +69,7 @@ const SignIn = () => {
               {errors.userPassword?.message && (
                 <p className="text-red-600">{errors.userPassword?.message}</p>
               )}
+              {error && <p className="text-red-600">{error.message}</p>}
               <label className="label">
                 <Link to="/resetPass" className="label-text link">
                   Forgot Password ?

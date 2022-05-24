@@ -1,17 +1,18 @@
 import axios from "../../utility/axios";
 import React, { useEffect, useState } from "react";
 import ToolsItem from "./ToolsItem";
+import { useQuery } from "react-query";
+import Spinner from "../Shared/Spinner";
 
 const Tools = () => {
-  const [tools, setTools] = useState([]);
+  const { data: tools, isLoading } = useQuery("toolsData", async () => {
+    const { data } = await axios.get("products/home-products");
+    return data;
+  });
 
-  useEffect(() => {
-    axios.get("tools.json").then((res) => {
-      const { data } = res;
-      console.log(data);
-      setTools(data);
-    });
-  }, []);
+  if (isLoading) {
+    return <Spinner />;
+  }
   return (
     <div className="mt-20">
       <h1 className="text-4xl text-center">Our Products</h1>

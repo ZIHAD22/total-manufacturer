@@ -1,17 +1,18 @@
 import axios from 'axios'
 
-// let setBaseUrl
+let setBaseUrl
 
-// if (process.env.NODE_ENV === 'development') {
-//   console.log('dev')
-// } else {
-//   console.log('pro')
-// }
+if (process.env.NODE_ENV === 'development') {
+  setBaseUrl = process.env.REACT_APP_API_URL_FOR_DEV
+  console.log(setBaseUrl)
+} else {
+  console.log('pro')
+}
 
 // Add a request interceptor
 axios.interceptors.request.use(
   function (config) {
-    // Do something before request is sent
+    config.baseURL = setBaseUrl
     return config
   },
   function (error) {
