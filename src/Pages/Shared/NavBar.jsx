@@ -10,6 +10,14 @@ const navItems = (
     <li>
       <CustomLink to="/about">About</CustomLink>
     </li>
+    <li>
+      <Link
+        className="btn btn-outline focus:bg-white focus:text-black"
+        to="/signIn"
+      >
+        Sign In
+      </Link>
+    </li>
   </>
 );
 

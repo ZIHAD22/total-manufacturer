@@ -27,7 +27,7 @@ const ToolsItem = ({
           <strong>Price: ${price} per unit</strong>
         </p>
         <div class="card-actions mx-auto mt-5">
-          <Link to="order" class="btn btn-primary">
+          <Link to="purchase" class="btn btn-primary">
             book now
           </Link>
         </div>
