@@ -1,23 +1,56 @@
+import { async } from "@firebase/util";
 import React from "react";
+import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import SocialLogin from "../Shared/SocialLogin";
+import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import auth from "../../firebase.init";
+import Spinner from "../Shared/Spinner";
+import { toast } from "react-toastify";
 
 const SignIn = () => {
+  const [signInWithEmailAndPassword, user, loading, error] =
+    useSignInWithEmailAndPassword(auth);
+
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm();
+  const handleSignIn = async (data) => {
+    const { userEmail, userPassword } = data;
+    await signInWithEmailAndPassword(userEmail, userPassword);
+    reset();
+  };
+
+  if (loading) {
+    return <Spinner />;
+  }
+
+  if (user) {
+    toast.success("Sign In Success");
+  }
+
   return (
     <div className="flex justify-center items-center h-screen">
       <div className="card w-96 bg-base-100 shadow-xl">
         <div className="card-body">
           <h2 className="text-2xl text-center font-bold">Sign In</h2>
 
-          <form action="">
+          <form onSubmit={handleSubmit(handleSignIn)}>
             <div className="form-control w-full max-w-xs">
               <label className="label">
                 <span className="label-text font-medium">Email</span>
               </label>
               <input
-                type="text"
+                type="email"
+                {...register("userEmail", { required: "required" })}
                 className="input input-bordered w-full max-w-xs"
               />
+              {errors.userEmail?.message && (
+                <p className="text-red-600">{errors.userEmail?.message}</p>
+              )}
             </div>
             <div className="form-control w-full max-w-xs">
               <label className="label">
@@ -25,8 +58,12 @@ const SignIn = () => {
               </label>
               <input
                 type="password"
+                {...register("userPassword", { required: "required" })}
                 className="input input-bordered w-full max-w-xs"
               />
+              {errors.userPassword?.message && (
+                <p className="text-red-600">{errors.userPassword?.message}</p>
+              )}
               <label className="label">
                 <Link to="/resetPass" className="label-text link">
                   Forgot Password ?
