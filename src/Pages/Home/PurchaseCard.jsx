@@ -1,11 +1,13 @@
-import React, { useRef, useState } from "react";
+import axios from "../../utility/axios";
+import React, { useRef } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { set, useForm } from "react-hook-form";
+import { toast } from "react-toastify";
 import auth from "../../firebase.init";
 
 const PurchaseCard = ({
   product: {
-    id,
+    _id,
     toolName,
     toolImg,
     toolDescription,
@@ -29,7 +31,9 @@ const PurchaseCard = ({
     defaultValues: {
       userName: user?.displayName,
       userEmail: user?.email,
+      toolId: _id,
       toolName: toolName,
+      toolImg: toolImg,
       totalPrice: 0,
     },
   });
@@ -37,8 +41,11 @@ const PurchaseCard = ({
   const totalOrderPrice = parseInt(totalOrder) * parseInt(price);
   setValue("totalPrice", `$ ${totalOrderPrice || 0}`);
 
-  const handlePurchaseCard = (data) => {
-    const { userAddress, phoneNumber, orderQuantity, totalPrice } = data;
+  const handlePurchaseCard = async (data) => {
+    const { orderQuantity, totalPrice } = data;
+
+    const orderTotalPrice = totalPrice.split(" ")[1];
+    data.totalPrice = orderTotalPrice;
 
     if (orderQuantity < minOrder) {
       return setError("orderQuantity", {
@@ -51,7 +58,13 @@ const PurchaseCard = ({
         message: `Order Quantity must be lass than ${quantity}/unite`,
       });
     }
-    console.log(data);
+
+    const { data: postedOrder } = await axios.post("orders", data);
+
+    if (postedOrder) {
+      reset();
+      toast.success("Order Success");
+    }
   };
   return (
     <div className="card flex-shrink-0 w-full lg:max-w-lg shadow-2xl">

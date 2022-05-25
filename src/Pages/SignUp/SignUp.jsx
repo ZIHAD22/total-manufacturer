@@ -1,11 +1,11 @@
 import React from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import SocialLogin from "../Pages/Shared/SocialLogin";
+import SocialLogin from "../Shared/SocialLogin";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { useUpdateProfile } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
-import auth from "../firebase.init";
-import Spinner from "../Pages/Shared/Spinner";
+import auth from "../../firebase.init";
+import Spinner from "../Shared/Spinner";
 import { toast } from "react-toastify";
 
 const SignUp = () => {

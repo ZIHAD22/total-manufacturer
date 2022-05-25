@@ -20,9 +20,14 @@ const NavBar = () => {
       </li>
 
       {user?.displayName?.length && (
-        <li className="mx-1">
-          <CustomLink to="/profile">{user?.displayName}</CustomLink>
-        </li>
+        <>
+          <li className="mx-1">
+            <CustomLink to="/dashboard">Dashboard</CustomLink>
+          </li>
+          <li className="mx-1">
+            <CustomLink to="/profile">{user?.displayName}</CustomLink>
+          </li>
+        </>
       )}
       <li className="mx-1">
         {user?.uid ? (
