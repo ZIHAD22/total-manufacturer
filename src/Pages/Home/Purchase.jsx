@@ -22,11 +22,16 @@ const Purchase = () => {
   return (
     <div className="min-h-screen mt-10">
       <h1 className="text-4xl text-center font-bold">Product Purchasing </h1>
-      <div className="flex justify-between items-center">
+      <div className="lg:flex lg:justify-between lg:items-center">
         <div className="text-center lg:text-left">
-          <div className="w-1/2 mx-auto shadow-2xl p-8 rounded-2xl">
+          <div className="lg:w-1/2 mx-auto shadow-2xl p-8 rounded-2xl">
             <div>
-              <img className="rounded-2xl" width="500px" src={toolImg} alt="" />
+              <img
+                className="rounded-2xl md:mx-auto"
+                width="500px"
+                src={toolImg}
+                alt=""
+              />
             </div>
             <p className="text-xl font-bold mt-5">Tool Name: {toolName}</p>
             <p className="text-base mt-3">

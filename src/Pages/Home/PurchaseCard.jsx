@@ -137,13 +137,17 @@ const PurchaseCard = ({
             <input
               type="text"
               disabled
-              //   value={`$ ${totalOrderPrice || 0}`}
               {...register("totalPrice", { required: "required" })}
               className="input input-bordered"
             />
           </div>
           <div className="form-control mt-6">
-            <button className="btn btn-primary">Payment Now</button>
+            <button
+              disabled={errors.orderQuantity?.message}
+              className="btn btn-primary"
+            >
+              Payment Now
+            </button>
           </div>
         </form>
       </div>
