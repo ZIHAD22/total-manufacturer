@@ -1,4 +1,5 @@
 import React from "react";
+import ReactStars from "react-rating-stars-component";
 
 const ReviewItem = ({ review: { reviewerName, description, reviewStar } }) => {
   return (
@@ -18,9 +19,18 @@ const ReviewItem = ({ review: { reviewerName, description, reviewStar } }) => {
           </h1>
         </div>
         <div className="text-center">
-          <p className="w-1/2  text-gray-600 mx-auto font-sans text-center">
-            Review Star: {reviewStar}
-          </p>
+          <div className="text-gray-600 block mx-auto font-sans text-center">
+            <div className="flex justify-center items-center">
+              <ReactStars
+                count={5}
+                value={reviewStar}
+                size={50}
+                isHalf={true}
+                activeColor="#ffd700"
+                edit={false}
+              />
+            </div>
+          </div>
           <p className="w-1/2  text-gray-600 mx-auto font-sans text-center">
             "
             {description.length > 140
