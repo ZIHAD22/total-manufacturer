@@ -1,8 +1,12 @@
 import React from "react";
 
-const Spinner = () => {
+const Spinner = ({ h }) => {
   return (
-    <div className="text-center h-screen flex justify-center items-center">
+    <div
+      className={`text-center h-${
+        h || "screen"
+      } flex justify-center items-center`}
+    >
       <svg
         role="status"
         className="inline w-20 h-20 mr-2 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"

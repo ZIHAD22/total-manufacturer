@@ -1,7 +1,7 @@
 import axios from "../../utility/axios";
 import React, { useRef } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { set, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import auth from "../../firebase.init";
 
