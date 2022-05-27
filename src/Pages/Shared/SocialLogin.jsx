@@ -1,3 +1,4 @@
+import axios from "../../utility/axios";
 import React from "react";
 import { useSignInWithGoogle } from "react-firebase-hooks/auth";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -15,6 +16,16 @@ const SocialLogin = () => {
   };
 
   if (user) {
+    if (user.user.displayName && user.user.email) {
+      axios
+        .put("users", {
+          userName: user.user.displayName,
+          userEmail: user.user.email,
+        })
+        .then((res) => {
+          console.log(res.data);
+        });
+    }
     toast.success("Sign Up With Google Success");
     navigate(from, { replace: true });
   }

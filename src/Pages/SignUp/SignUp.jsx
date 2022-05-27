@@ -7,8 +7,9 @@ import { useForm } from "react-hook-form";
 import auth from "../../firebase.init";
 import Spinner from "../Shared/Spinner";
 import { toast } from "react-toastify";
+import axios from "../../utility/axios";
 
-const SignUp = () => {
+const SignUp = ({ navRefetchfun }) => {
   let navigate = useNavigate();
   let location = useLocation();
   let from = location.state?.from?.pathname || "/";
@@ -26,16 +27,21 @@ const SignUp = () => {
     const { userEmail, userName, userPassword } = data;
     await createUserWithEmailAndPassword(userEmail, userPassword);
     await updateProfile({ displayName: userName });
+    await axios.put("users", {
+      userName,
+      userEmail,
+    });
+    navRefetchfun();
     reset();
   };
 
-  if (loading) {
+  if (updating || loading) {
     return <Spinner />;
   }
 
   if (user) {
-    toast.success("Sign Up Success");
     navigate(from, { replace: true });
+    toast.success("Sign Up Success");
   }
 
   return (
@@ -83,8 +89,10 @@ const SignUp = () => {
               {errors.userPassword?.message && (
                 <p className="text-red-600">{errors.userPassword?.message}</p>
               )}
-              {CreateUserError && (
-                <p className="text-red-600">{CreateUserError.message}</p>
+              {(CreateUserError || UpdateProfileError) && (
+                <p className="text-red-600">
+                  {CreateUserError.message || UpdateProfileError.message}
+                </p>
               )}
               <label className="label">
                 <Link to="/resetPass" className="label-text link">

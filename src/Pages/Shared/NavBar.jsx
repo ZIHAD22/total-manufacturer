@@ -1,16 +1,27 @@
+import axios from "../../utility/axios";
 import { signOut } from "firebase/auth";
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { useQuery } from "react-query";
 import { Link } from "react-router-dom";
 import auth from "../../firebase.init";
 import CustomLink from "./CustomLink";
 
-const NavBar = () => {
+const NavBar = ({ navRefetch }) => {
   const [user] = useAuthState(auth);
+
+  const { data: userData, refetch } = useQuery(["userData", user], async () => {
+    const { data } = await axios.get(`users/${user?.email}`);
+    return data;
+  });
+
+  navRefetch(refetch);
+
   const handleSignOut = () => {
     signOut(auth);
   };
-  const navItems = (
+
+  const navData = (
     <>
       <li className="mx-1">
         <CustomLink to="/">Home</CustomLink>
@@ -19,18 +30,22 @@ const NavBar = () => {
         <CustomLink to="/about">About</CustomLink>
       </li>
 
-      {user?.displayName?.length && (
+      {userData?._id && (
         <>
           <li className="mx-1">
             <CustomLink to="/dashboard">Dashboard</CustomLink>
           </li>
+        </>
+      )}
+      {userData?.userName && (
+        <>
           <li className="mx-1">
-            <CustomLink to="/profile">{user?.displayName}</CustomLink>
+            <CustomLink to="/profile">{userData?.userName}</CustomLink>
           </li>
         </>
       )}
       <li className="mx-1">
-        {user?.uid ? (
+        {userData?._id ? (
           <button
             className="btn btn-outline focus:bg-white focus:text-black"
             onClick={handleSignOut}
@@ -48,6 +63,7 @@ const NavBar = () => {
       </li>
     </>
   );
+
   return (
     <div className="navbar">
       <div className="navbar-start">
@@ -72,7 +88,7 @@ const NavBar = () => {
             tabIndex="0"
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
-            {navItems}
+            {navData}
           </ul>
         </div>
         <Link className="btn btn-ghost normal-case text-xl font-bold" to="/">
@@ -80,7 +96,7 @@ const NavBar = () => {
         </Link>
       </div>
       <div className="navbar-end hidden lg:flex">
-        <ul className="menu menu-horizontal p-0">{navItems}</ul>
+        <ul className="menu menu-horizontal p-0">{navData}</ul>
       </div>
     </div>
   );

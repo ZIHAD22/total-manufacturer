@@ -22,7 +22,7 @@ const DeleteConfirmModal = ({ refetch, showModalId, setShowModalId }) => {
             Are you sure you want to cancel this order ?
           </h3>
           <p class="py-4 text-center">
-            You will not be able to{" "}
+            You will not be able to
             <span className="text-red-500 font-bold">recover</span> this order
           </p>
           <div class="modal-action">

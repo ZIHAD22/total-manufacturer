@@ -14,11 +14,22 @@ import MyOrders from '../Pages/Dashboard/MyOrders'
 import AddReview from '../Pages/Dashboard/AddReview'
 import MyProfile from '../Pages/Dashboard/MyProfile'
 import Payment from '../Pages/Dashboard/Payment'
+import { useState } from 'react'
 
 function App() {
+  // const [user, loading] = useAuthState(auth)
+  // if (loading) {
+  //   return <Spinner />
+  // }
+
+  const [navRefetchfun, setNavRefatch] = useState(null)
+
+  const navRefetch = (refetchFun) => {
+    setNavRefatch(refetchFun)
+  }
   return (
     <div className="max-w-[1400px] mx-auto">
-      <NavBar />
+      <NavBar navRefetch={navRefetch} />
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route
@@ -30,7 +41,10 @@ function App() {
           }
         ></Route>
         <Route path="/signIn" element={<SignIn />}></Route>
-        <Route path="/signUp" element={<SignUp />}></Route>
+        <Route
+          path="/signUp"
+          element={<SignUp navRefetchfun={navRefetchfun} />}
+        ></Route>
         <Route
           path="/dashboard"
           element={

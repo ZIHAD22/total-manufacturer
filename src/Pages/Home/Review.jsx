@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -51,7 +51,7 @@ const Review = () => {
         className="mySwiper"
       >
         {reviewsData.map((review) => (
-          <SwiperSlide>
+          <SwiperSlide key={review._id}>
             <ReviewItem review={review}></ReviewItem>
           </SwiperSlide>
         ))}
