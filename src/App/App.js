@@ -19,11 +19,23 @@ import RequireAdmin from '../Pages/Shared/RequireAdmin'
 import ManageAllOrders from '../Pages/Dashboard/ManageAllOrders'
 import AddProduct from '../Pages/Dashboard/AddProduct'
 import ManageProducts from '../Pages/Dashboard/ManageProducts'
+import useAdmin from '../hooks/useAdmin'
+import { useAuthState } from 'react-firebase-hooks/auth'
+import auth from '../firebase.init'
+import { useState } from 'react'
 
 function App() {
+  const [isNavRefetch, setNavRefetch] = useState(false)
+  const [user] = useAuthState(auth)
+  const [admin] = useAdmin(user)
+
+  // const navReFun = (refetch) => {
+  //   setNavRefatch(refetch)
+  // }
+
   return (
     <div className="max-w-[1400px] mx-auto">
-      <NavBar />
+      <NavBar isNavRefetch={isNavRefetch} setNavRefetch={setNavRefetch} />
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route
@@ -35,7 +47,10 @@ function App() {
           }
         ></Route>
         <Route path="/signIn" element={<SignIn />}></Route>
-        <Route path="/signUp" element={<SignUp />}></Route>
+        <Route
+          path="/signUp"
+          element={<SignUp setNavRefetch={setNavRefetch} />}
+        ></Route>
         <Route
           path="/dashboard"
           element={
@@ -44,42 +59,59 @@ function App() {
             </RequireAuth>
           }
         >
-          <Route index element={<MyOrders></MyOrders>}></Route>
-          <Route path="add-review" element={<AddReview></AddReview>}></Route>
-          <Route path="profile" element={<MyProfile></MyProfile>}></Route>
-          <Route path="payment/:id" element={<Payment />}></Route>
-          <Route
-            path="users"
-            element={
-              <RequireAdmin>
-                <AllUsers />
-              </RequireAdmin>
-            }
-          ></Route>
-          <Route
-            path="all-orders"
-            element={
-              <RequireAdmin>
-                <ManageAllOrders />
-              </RequireAdmin>
-            }
-          ></Route>
-          <Route
-            path="add-product"
-            element={
-              <RequireAdmin>
-                <AddProduct />
-              </RequireAdmin>
-            }
-          ></Route>
-          <Route
-            path="manage-products"
-            element={
-              <RequireAdmin>
-                <ManageProducts />
-              </RequireAdmin>
-            }
-          ></Route>
+          {admin ? (
+            <>
+              <Route
+                index
+                element={<MyProfile setNavRefetch={setNavRefetch}></MyProfile>}
+              ></Route>
+              <Route
+                path="users"
+                element={
+                  <RequireAdmin>
+                    <AllUsers />
+                  </RequireAdmin>
+                }
+              ></Route>
+              <Route
+                path="all-orders"
+                element={
+                  <RequireAdmin>
+                    <ManageAllOrders />
+                  </RequireAdmin>
+                }
+              ></Route>
+              <Route
+                path="add-product"
+                element={
+                  <RequireAdmin>
+                    <AddProduct />
+                  </RequireAdmin>
+                }
+              ></Route>
+              <Route
+                path="manage-products"
+                element={
+                  <RequireAdmin>
+                    <ManageProducts />
+                  </RequireAdmin>
+                }
+              ></Route>
+            </>
+          ) : (
+            <>
+              <Route index element={<MyOrders></MyOrders>}></Route>
+              <Route
+                path="add-review"
+                element={<AddReview></AddReview>}
+              ></Route>
+              <Route
+                path="profile"
+                element={<MyProfile setNavRefetch={setNavRefetch}></MyProfile>}
+              ></Route>
+              <Route path="payment/:id" element={<Payment />}></Route>
+            </>
+          )}
         </Route>
       </Routes>
       <Footer />

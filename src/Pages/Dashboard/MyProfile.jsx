@@ -6,7 +6,7 @@ import auth from "../../firebase.init";
 import Spinner from "../Shared/Spinner";
 import UpdateProfileModal from "./UpdateProfileModal";
 
-const MyProfile = () => {
+const MyProfile = ({ setNavRefetch }) => {
   const [user, loading] = useAuthState(auth);
 
   const [showModal, setShowModal] = useState(false);
@@ -73,7 +73,11 @@ const MyProfile = () => {
         </div>
       </div>
       {showModal && (
-        <UpdateProfileModal setShowModal={setShowModal} refetch={refetch} />
+        <UpdateProfileModal
+          setShowModal={setShowModal}
+          refetch={refetch}
+          setNavRefetch={setNavRefetch}
+        />
       )}
     </div>
   );

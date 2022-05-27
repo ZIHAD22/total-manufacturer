@@ -5,7 +5,7 @@ import auth from "../../firebase.init";
 import { useUpdateProfile } from "react-firebase-hooks/auth";
 import axios from "../../utility/axios";
 
-const UpdateProfileModal = ({ refetch, setShowModal }) => {
+const UpdateProfileModal = ({ refetch, setShowModal, setNavRefetch }) => {
   const [user] = useAuthState(auth);
   const [updateProfile] = useUpdateProfile(auth);
 
@@ -18,6 +18,7 @@ const UpdateProfileModal = ({ refetch, setShowModal }) => {
   const handleUserProfileUpdate = async (data) => {
     await axios.put("users", data);
     await updateProfile({ displayName: data.userName });
+    setNavRefetch(true);
     setShowModal(false);
     refetch();
   };
@@ -29,7 +30,7 @@ const UpdateProfileModal = ({ refetch, setShowModal }) => {
       setValue("address", data.address);
       setValue("phoneNumber", data.phoneNumber);
     });
-  }, [user, setValue]);
+  }, [user]);
 
   return (
     <div>

@@ -1,13 +1,13 @@
 import axios from "../../utility/axios";
 import { signOut } from "firebase/auth";
-import React from "react";
+import React, { useEffect } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useQuery } from "react-query";
 import { Link } from "react-router-dom";
 import auth from "../../firebase.init";
 import CustomLink from "./CustomLink";
 
-const NavBar = () => {
+const NavBar = ({ isNavRefetch, setNavRefetch }) => {
   const [user] = useAuthState(auth);
 
   const { data: userData, refetch } = useQuery(["userData", user], async () => {
@@ -15,7 +15,12 @@ const NavBar = () => {
     return data;
   });
 
-  refetch();
+  console.log(isNavRefetch);
+
+  if (isNavRefetch) {
+    refetch();
+    setNavRefetch(false);
+  }
 
   const handleSignOut = () => {
     signOut(auth);

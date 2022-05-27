@@ -9,7 +9,7 @@ import Spinner from "../Shared/Spinner";
 import { toast } from "react-toastify";
 import axios from "../../utility/axios";
 
-const SignUp = () => {
+const SignUp = ({ setNavRefetch }) => {
   let navigate = useNavigate();
   let location = useLocation();
   let from = location.state?.from?.pathname || "/";
@@ -32,6 +32,7 @@ const SignUp = () => {
       userEmail,
     });
     reset();
+    setNavRefetch(true);
   };
 
   if (updating || loading) {

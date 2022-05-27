@@ -42,13 +42,17 @@ const Dashboard = () => {
               <li className="bg-gray-900 my-2 hover:bg-gray-800 text-white rounded-md">
                 <Link to="add-review">Add A Review</Link>
               </li>
+              <li className="bg-gray-900 my-2 hover:bg-gray-800 text-white rounded-md">
+                <Link to="profile">My Profile</Link>
+              </li>
             </>
           )}
-          <li className="bg-gray-900 my-2 hover:bg-gray-800 text-white rounded-md">
-            <Link to="profile">My Profile</Link>
-          </li>
+
           {admin && (
             <>
+              <li className="bg-gray-900 my-2 hover:bg-gray-800 text-white rounded-md">
+                <Link to="/dashboard">My Profile</Link>
+              </li>
               <li className="bg-gray-900 my-2 hover:bg-gray-800 text-white rounded-md">
                 <Link to="all-orders">Manage All Orders</Link>
               </li>
