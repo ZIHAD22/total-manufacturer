@@ -24,6 +24,7 @@ import { useAuthState } from 'react-firebase-hooks/auth'
 import auth from '../firebase.init'
 import { useState } from 'react'
 import Portfolio from '../Pages/Portfolio/Portfolio'
+import NotFound from '../Pages/Shared/NotFound'
 
 function App() {
   const [isNavRefetch, setNavRefetch] = useState(false)
@@ -116,6 +117,7 @@ function App() {
         </Route>
 
         <Route path="/portfolio" element={<Portfolio />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
       <ToastContainer />
