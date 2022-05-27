@@ -17,21 +17,21 @@ const Dashboard = () => {
 
   return (
     <div class="drawer drawer-mobile rounded-md">
-      <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
+      <input id="dashboard-drawer" type="checkbox" class="drawer-toggle" />
       <div class="drawer-content flex flex-col">
         {/* <!-- Page content here --> */}
         <div className=" m-5">
           <Outlet />
         </div>
-        <label
-          for="my-drawer-2"
+        {/* <label
+          for="dashboard-drawer"
           class="btn btn-primary drawer-button lg:hidden"
         >
           Open drawer
-        </label>
+        </label> */}
       </div>
       <div class="drawer-side ">
-        <label for="my-drawer-2" class="drawer-overlay"></label>
+        <label for="dashboard-drawer" class="drawer-overlay"></label>
         <ul class="menu p-4 overflow-y-auto w-80 bg-gray-500 text-base-content">
           {/* <!-- Sidebar content here --> */}
           {!admin && (

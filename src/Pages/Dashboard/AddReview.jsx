@@ -49,7 +49,7 @@ const AddReview = () => {
   return (
     <div>
       <h1 className="text-4xl text-center font-bold">Dashboard (Add Review)</h1>
-      <div className="w-1/2 mx-auto">
+      <div className="lg:w-1/2 mx-auto">
         <h4 className="text-xl text-center mt-5">Add Review</h4>
         <form onSubmit={handleSubmit(handleReview)}>
           <div class="form-control w-full max-w-lg mx-auto">
