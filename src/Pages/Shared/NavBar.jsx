@@ -29,10 +29,6 @@ const NavBar = ({ isNavRefetch, setNavRefetch }) => {
       <li className="mx-1">
         <CustomLink to="/">Home</CustomLink>
       </li>
-      <li className="mx-1">
-        <CustomLink to="/about">About</CustomLink>
-      </li>
-
       {userData?._id && (
         <>
           <li className="mx-1">
@@ -43,7 +39,9 @@ const NavBar = ({ isNavRefetch, setNavRefetch }) => {
       {userData?.userName && (
         <>
           <li className="mx-1">
-            <CustomLink to="/profile">{userData?.userName}</CustomLink>
+            <CustomLink to="/dashboard/profile">
+              {userData?.userName}
+            </CustomLink>
           </li>
         </>
       )}

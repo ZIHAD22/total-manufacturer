@@ -18,9 +18,9 @@ const UpdateProfileModal = ({ refetch, setShowModal, setNavRefetch }) => {
   const handleUserProfileUpdate = async (data) => {
     await axios.put("users", data);
     await updateProfile({ displayName: data.userName });
-    setNavRefetch(true);
     setShowModal(false);
     refetch();
+    setNavRefetch(true);
   };
 
   useEffect(() => {
