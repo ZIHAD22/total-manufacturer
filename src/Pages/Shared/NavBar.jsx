@@ -15,8 +15,6 @@ const NavBar = ({ isNavRefetch, setNavRefetch }) => {
     return data;
   });
 
-  console.log(isNavRefetch);
-
   if (isNavRefetch) {
     refetch();
     setNavRefetch(false);
@@ -49,6 +47,9 @@ const NavBar = ({ isNavRefetch, setNavRefetch }) => {
           </li>
         </>
       )}
+      <li className="mx-1">
+        <CustomLink to="/portfolio">My Portfolio</CustomLink>
+      </li>
       <li className="mx-1">
         {userData?._id ? (
           <button

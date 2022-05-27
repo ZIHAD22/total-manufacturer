@@ -23,6 +23,7 @@ import useAdmin from '../hooks/useAdmin'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import auth from '../firebase.init'
 import { useState } from 'react'
+import Portfolio from '../Pages/Portfolio/Portfolio'
 
 function App() {
   const [isNavRefetch, setNavRefetch] = useState(false)
@@ -113,6 +114,8 @@ function App() {
             </>
           )}
         </Route>
+
+        <Route path="/portfolio" element={<Portfolio />} />
       </Routes>
       <Footer />
       <ToastContainer />
