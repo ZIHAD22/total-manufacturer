@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import auth from "../../firebase.init";
 import CustomLink from "./CustomLink";
 
-const NavBar = ({ navRefetch }) => {
+const NavBar = () => {
   const [user] = useAuthState(auth);
 
   const { data: userData, refetch } = useQuery(["userData", user], async () => {
@@ -15,7 +15,7 @@ const NavBar = ({ navRefetch }) => {
     return data;
   });
 
-  navRefetch(refetch);
+  refetch();
 
   const handleSignOut = () => {
     signOut(auth);

@@ -14,22 +14,16 @@ import MyOrders from '../Pages/Dashboard/MyOrders'
 import AddReview from '../Pages/Dashboard/AddReview'
 import MyProfile from '../Pages/Dashboard/MyProfile'
 import Payment from '../Pages/Dashboard/Payment'
-import { useState } from 'react'
+import AllUsers from '../Pages/Dashboard/AllUsers'
+import RequireAdmin from '../Pages/Shared/RequireAdmin'
+import ManageAllOrders from '../Pages/Dashboard/ManageAllOrders'
+import AddProduct from '../Pages/Dashboard/AddProduct'
+import ManageProducts from '../Pages/Dashboard/ManageProducts'
 
 function App() {
-  // const [user, loading] = useAuthState(auth)
-  // if (loading) {
-  //   return <Spinner />
-  // }
-
-  const [navRefetchfun, setNavRefatch] = useState(null)
-
-  const navRefetch = (refetchFun) => {
-    setNavRefatch(refetchFun)
-  }
   return (
     <div className="max-w-[1400px] mx-auto">
-      <NavBar navRefetch={navRefetch} />
+      <NavBar />
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route
@@ -41,10 +35,7 @@ function App() {
           }
         ></Route>
         <Route path="/signIn" element={<SignIn />}></Route>
-        <Route
-          path="/signUp"
-          element={<SignUp navRefetchfun={navRefetchfun} />}
-        ></Route>
+        <Route path="/signUp" element={<SignUp />}></Route>
         <Route
           path="/dashboard"
           element={
@@ -57,6 +48,38 @@ function App() {
           <Route path="add-review" element={<AddReview></AddReview>}></Route>
           <Route path="profile" element={<MyProfile></MyProfile>}></Route>
           <Route path="payment/:id" element={<Payment />}></Route>
+          <Route
+            path="users"
+            element={
+              <RequireAdmin>
+                <AllUsers />
+              </RequireAdmin>
+            }
+          ></Route>
+          <Route
+            path="all-orders"
+            element={
+              <RequireAdmin>
+                <ManageAllOrders />
+              </RequireAdmin>
+            }
+          ></Route>
+          <Route
+            path="add-product"
+            element={
+              <RequireAdmin>
+                <AddProduct />
+              </RequireAdmin>
+            }
+          ></Route>
+          <Route
+            path="manage-products"
+            element={
+              <RequireAdmin>
+                <ManageProducts />
+              </RequireAdmin>
+            }
+          ></Route>
         </Route>
       </Routes>
       <Footer />
