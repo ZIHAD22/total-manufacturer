@@ -7,7 +7,11 @@ const ToolsItem = ({
   return (
     <div className="card w-96 bg-base-100 shadow-xl mx-auto">
       <figure className="px-10 pt-10">
-        <img src={toolImg} alt="Shoes" className="rounded-xl" />
+        <img
+          src={toolImg}
+          alt="Shoes"
+          className="rounded-xl w-[290px] h-[280px]"
+        />
       </figure>
       <div className="card-body">
         <h2 className="card-title">{toolName}</h2>
