@@ -6,6 +6,8 @@ if (process.env.NODE_ENV === 'development') {
   setBaseUrl = process.env.REACT_APP_API_URL_FOR_DEV
   console.log(setBaseUrl)
 } else {
+  setBaseUrl = process.env.REACT_APP_API_URL_FOR_PRO
+  console.log(setBaseUrl)
   console.log('pro')
 }
 
