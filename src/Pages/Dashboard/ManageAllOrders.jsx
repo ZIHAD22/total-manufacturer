@@ -1,9 +1,11 @@
 import axios from "../../utility/axios";
-import React from "react";
+import React, { useState } from "react";
 import { useQuery } from "react-query";
 import Spinner from "../Shared/Spinner";
+import DeleteConfirmModal from "./DeleteConfirmModal";
 
 const ManageAllOrders = () => {
+  const [showModalId, setShowModalId] = useState("");
   const {
     data: ordersData,
     refetch,
@@ -17,7 +19,6 @@ const ManageAllOrders = () => {
     const { data } = await axios.patch(`orders/make-shipped/${id}`, {
       status: "shipped",
     });
-    console.log(data);
     refetch();
   };
 
@@ -34,6 +35,7 @@ const ManageAllOrders = () => {
                 <th>s.no</th>
                 <th>Name</th>
                 <th>email</th>
+                <th>action</th>
                 <th>Payment</th>
                 <th>status</th>
               </tr>
@@ -44,6 +46,19 @@ const ManageAllOrders = () => {
                   <th>{i + 1}</th>
                   <td>{order.userName}</td>
                   <td>{order.userEmail}</td>
+                  <td>
+                    {!order.paid &&
+                      order.status !== "pending" &&
+                      order.status !== "shipped" && (
+                        <label
+                          for="deleteConfirmModal"
+                          onClick={() => setShowModalId(order._id)}
+                          className="text-accent btn btn-xs"
+                        >
+                          cancel order
+                        </label>
+                      )}
+                  </td>
                   <td>
                     {order?.paid ? (
                       <p className="text-accent font-bold">paid</p>
@@ -79,6 +94,13 @@ const ManageAllOrders = () => {
           </table>
         </div>
       </div>
+      {showModalId && (
+        <DeleteConfirmModal
+          refetch={refetch}
+          showModalId={showModalId}
+          setShowModalId={setShowModalId}
+        />
+      )}
     </div>
   );
 };
