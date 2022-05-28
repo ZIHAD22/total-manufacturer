@@ -1,6 +1,5 @@
 import React from "react";
 import { ClockIcon } from "@heroicons/react/solid";
-import { Link } from "react-router-dom";
 
 const BlogsItem = ({ blog }) => {
   return (
