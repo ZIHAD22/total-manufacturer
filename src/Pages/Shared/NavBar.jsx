@@ -38,13 +38,14 @@ const NavBar = ({ isNavRefetch, setNavRefetch }) => {
           </li>
         </>
       )}
-      {userData?.userName && admin ? (
+      {userData?.userName && admin && (
         <>
           <li className="mx-1">
             <CustomLink to="/dashboard">{userData?.userName}</CustomLink>
           </li>
         </>
-      ) : (
+      )}
+      {userData?.userName && !admin && (
         <>
           <li className="mx-1">
             <CustomLink to="/dashboard/profile">
