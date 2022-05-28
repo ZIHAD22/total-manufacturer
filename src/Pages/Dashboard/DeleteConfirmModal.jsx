@@ -15,18 +15,18 @@ const DeleteConfirmModal = ({ refetch, showModalId, setShowModalId }) => {
   };
   return (
     <div>
-      <input type="checkbox" id="deleteConfirmModal" class="modal-toggle" />
-      <div class="modal modal-bottom sm:modal-middle">
-        <div class="modal-box">
-          <h3 class="font-bold text-lg text-center text-red-500">
+      <input type="checkbox" id="deleteConfirmModal" className="modal-toggle" />
+      <div className="modal modal-bottom sm:modal-middle">
+        <div className="modal-box">
+          <h3 className="font-bold text-lg text-center text-red-500">
             Are you sure you want to cancel this order ?
           </h3>
-          <p class="py-4 text-center">
+          <p className="py-4 text-center">
             You will not be able to
             <span className="text-red-500 font-bold">recover</span> this order
           </p>
-          <div class="modal-action">
-            <label for="deleteConfirmModal" class="btn">
+          <div className="modal-action">
+            <label htmlFor="deleteConfirmModal" className="btn">
               Close
             </label>
             <button onClick={handleDeleteOrders} className="btn">

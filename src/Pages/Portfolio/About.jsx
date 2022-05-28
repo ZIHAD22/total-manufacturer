@@ -74,7 +74,7 @@ const About = () => {
           <div className="mt-3">
             <h3 className="text-xl font-bold uppercase">html</h3>
             <progress
-              class="progress progress-accent w-full"
+              className="progress progress-accent w-full"
               value="99"
               max="100"
             ></progress>
@@ -82,7 +82,7 @@ const About = () => {
           <div className="mt-3">
             <h3 className="text-xl font-bold uppercase">css</h3>
             <progress
-              class="progress progress-info w-full"
+              className="progress progress-info w-full"
               value="90"
               max="100"
             ></progress>
@@ -90,7 +90,7 @@ const About = () => {
           <div className="mt-3">
             <h3 className="text-xl font-bold uppercase">javascript</h3>
             <progress
-              class="progress progress-warning w-full"
+              className="progress progress-warning w-full"
               value="95"
               max="100"
             ></progress>
@@ -98,7 +98,7 @@ const About = () => {
           <div className="mt-3">
             <h3 className="text-xl font-bold uppercase">react js</h3>
             <progress
-              class="progress progress-error w-full"
+              className="progress progress-error w-full"
               value="98"
               max="100"
             ></progress>
@@ -106,7 +106,7 @@ const About = () => {
           <div className="mt-3">
             <h3 className="text-xl font-bold uppercase">mongodb</h3>
             <progress
-              class="progress progress-accent w-full"
+              className="progress progress-accent w-full"
               value="85"
               max="100"
             ></progress>

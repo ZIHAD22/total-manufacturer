@@ -29,8 +29,8 @@ const ManageAllOrders = () => {
     <div>
       <h1 className="text-4xl text-center font-bold">Dashboard (All Orders)</h1>
       <div className="mt-5">
-        <div class="overflow-x-auto">
-          <table class="table w-full text-center">
+        <div className="overflow-x-auto">
+          <table className="table w-full text-center">
             <thead>
               <tr>
                 <th>s.no</th>
@@ -52,7 +52,7 @@ const ManageAllOrders = () => {
                       order.status !== "pending" &&
                       order.status !== "shipped" && (
                         <label
-                          for="deleteConfirmModal"
+                          htmlFor="deleteConfirmModal"
                           onClick={() => setShowModalId(order._id)}
                           className="text-accent btn btn-xs"
                         >

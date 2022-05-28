@@ -35,15 +35,15 @@ const MyProfile = ({ setNavRefetch }) => {
         Dashboard (Profile)
         <label
           onClick={handleProfileModal}
-          for="updateProfileModal"
+          htmlFor="updateProfileModal"
           className="btn btn-outline mx-2"
         >
           Edit
         </label>
       </h1>
       <div className="grid grid-cols-1 lg:grid-cols-3 mt-8 items-center">
-        <div class="avatar">
-          <div class="w-4/5 rounded-full mx-auto">
+        <div className="avatar">
+          <div className="w-4/5 rounded-full mx-auto">
             <img src="https://api.lorem.space/image/face?hash=92310" alt="no" />
           </div>
         </div>

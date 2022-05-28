@@ -3,12 +3,12 @@ import { ClockIcon } from "@heroicons/react/solid";
 
 const BlogsItem = ({ blog }) => {
   return (
-    <div class="card my-10 lg:card-side bg-accent shadow-xl text-white font-bold">
-      <div class="card-body order-2 lg:order-1">
+    <div className="card my-10 lg:card-side bg-accent shadow-xl text-white font-bold">
+      <div className="card-body order-2 lg:order-1">
         <span className="flex justify-start items-center">
           <ClockIcon className="h-5 w-5 mr-3" /> <span>April 22, 2022</span>
         </span>
-        <h2 class="text-5xl my-5">{blog.title}</h2>
+        <h2 className="text-5xl my-5">{blog.title}</h2>
         <p className="text-lg">{blog.description}</p>
       </div>
 

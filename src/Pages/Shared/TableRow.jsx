@@ -26,7 +26,7 @@ const TableRow = ({
       <td>${totalPrice}/unite</td>
       <td>
         <label
-          for="deleteConfirmModal"
+          htmlFor="deleteConfirmModal"
           onClick={() => setShowModalId(_id)}
           className="btn btn-xs"
         >

@@ -39,12 +39,12 @@ const Payment = () => {
         Payment for {toolName}
       </h1>
       <div>
-        <div class="card card-side bg-base-100 shadow-xl">
+        <div className="card card-side bg-base-100 shadow-xl">
           <div>
             <img className="w-[350px] h-full" src={toolImg} alt={toolName} />
           </div>
-          <div class="card-body">
-            <h2 class="text-2xl">{toolName}</h2>
+          <div className="card-body">
+            <h2 className="text-2xl">{toolName}</h2>
             <strong>
               <p>Customer Name: {userName}</p>
               <p>Customer Email: {userEmail}</p>

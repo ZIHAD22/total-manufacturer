@@ -34,29 +34,29 @@ const UpdateProfileModal = ({ refetch, setShowModal, setNavRefetch }) => {
 
   return (
     <div>
-      <input type="checkbox" id="updateProfileModal" class="modal-toggle" />
-      <div class="modal modal-bottom sm:modal-middle">
+      <input type="checkbox" id="updateProfileModal" className="modal-toggle" />
+      <div className="modal modal-bottom sm:modal-middle">
         <form
           onSubmit={handleSubmit(handleUserProfileUpdate)}
-          class="modal-box"
+          className="modal-box"
         >
-          <div class="form-control w-full max-w-xs mx-auto">
-            <label class="label">
-              <span class="label-text">Name</span>
+          <div className="form-control w-full max-w-xs mx-auto">
+            <label className="label">
+              <span className="label-text">Name</span>
             </label>
             <input
               type="text"
               // defaultValue={userProfile.userName}
               {...register("userName")}
-              class="input input-bordered w-full max-w-xs"
+              className="input input-bordered w-full max-w-xs"
             />
             {errors && (
               <p className="text-red-600 text-sm">{errors.userName?.message}</p>
             )}
           </div>
-          <div class="form-control w-full max-w-xs mx-auto">
-            <label class="label">
-              <span class="label-text">
+          <div className="form-control w-full max-w-xs mx-auto">
+            <label className="label">
+              <span className="label-text">
                 Email <small>(Not Editable)</small>
               </span>
             </label>
@@ -65,7 +65,7 @@ const UpdateProfileModal = ({ refetch, setShowModal, setNavRefetch }) => {
               disabled
               // defaultValue={userProfile.userEmail}
               {...register("userEmail")}
-              class="input input-bordered w-full max-w-xs"
+              className="input input-bordered w-full max-w-xs"
             />
             {errors && (
               <p className="text-red-600 text-sm">
@@ -73,29 +73,29 @@ const UpdateProfileModal = ({ refetch, setShowModal, setNavRefetch }) => {
               </p>
             )}
           </div>
-          <div class="form-control w-full max-w-xs mx-auto">
-            <label class="label">
-              <span class="label-text">Address</span>
+          <div className="form-control w-full max-w-xs mx-auto">
+            <label className="label">
+              <span className="label-text">Address</span>
             </label>
             <input
               type="text"
               // defaultValue={userProfile.address}
               {...register("address")}
-              class="input input-bordered w-full max-w-xs"
+              className="input input-bordered w-full max-w-xs"
             />
             {errors && (
               <p className="text-red-600 text-sm">{errors.address?.message}</p>
             )}
           </div>
-          <div class="form-control w-full max-w-xs mx-auto">
-            <label class="label">
-              <span class="label-text">Phone Number</span>
+          <div className="form-control w-full max-w-xs mx-auto">
+            <label className="label">
+              <span className="label-text">Phone Number</span>
             </label>
             <input
               type="number"
               // defaultValue={userProfile.phoneNumber}
               {...register("phoneNumber")}
-              class="input input-bordered w-full max-w-xs"
+              className="input input-bordered w-full max-w-xs"
             />
             {errors && (
               <p className="text-red-600 text-sm">
@@ -103,8 +103,8 @@ const UpdateProfileModal = ({ refetch, setShowModal, setNavRefetch }) => {
               </p>
             )}
           </div>
-          <div class="modal-action">
-            <label for="updateProfileModal" class="btn">
+          <div className="modal-action">
+            <label htmlFor="updateProfileModal" className="btn">
               Close
             </label>
             <button onClick={handleUserProfileUpdate} className="btn">

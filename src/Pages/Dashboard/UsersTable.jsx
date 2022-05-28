@@ -14,8 +14,8 @@ const UsersTable = ({ allUsers, refetch }) => {
   };
 
   return (
-    <div class="overflow-x-auto">
-      <table class="table w-full text-center">
+    <div className="overflow-x-auto">
+      <table className="table w-full text-center">
         <thead>
           <tr>
             <th>s.no</th>

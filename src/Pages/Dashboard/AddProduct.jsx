@@ -39,65 +39,65 @@ const AddProduct = () => {
       <div className="">
         <form onSubmit={handleSubmit(handleAddProduct)}>
           <h4 className="text-xl text-center mt-5">Add Product</h4>
-          <div class="form-control w-full max-w-lg mx-auto">
-            <label class="label">
-              <span class="label-text">Product Name</span>
+          <div className="form-control w-full max-w-lg mx-auto">
+            <label className="label">
+              <span className="label-text">Product Name</span>
             </label>
             <input
               type="text"
               placeholder="Type here"
               {...register("toolName", { required: "required" })}
-              class="input input-bordered w-full max-w-lg"
+              className="input input-bordered w-full max-w-lg"
             />
             {errors.toolName?.message && (
               <p className="text-red-600">{errors.toolName?.message}</p>
             )}
           </div>
-          <div class="form-control w-full max-w-lg mx-auto">
-            <label class="label">
-              <span class="label-text">Product Description</span>
+          <div className="form-control w-full max-w-lg mx-auto">
+            <label className="label">
+              <span className="label-text">Product Description</span>
             </label>
             <textarea
               type="text"
               placeholder="Type here"
               {...register("toolDescription", { required: "required" })}
-              class="textarea  input-bordered w-full max-w-lg"
+              className="textarea  input-bordered w-full max-w-lg"
             />
             {errors.toolDescription?.message && (
               <p className="text-red-600">{errors.toolDescription?.message}</p>
             )}
           </div>
-          <div class="form-control w-full max-w-lg mx-auto">
-            <label class="label">
-              <span class="label-text">Minimum Order Quantity</span>
+          <div className="form-control w-full max-w-lg mx-auto">
+            <label className="label">
+              <span className="label-text">Minimum Order Quantity</span>
             </label>
             <input
               type="number"
               placeholder="Type here"
               {...register("minOrder", { required: "required" })}
-              class="input input-bordered w-full max-w-lg"
+              className="input input-bordered w-full max-w-lg"
             />
             {errors.minOrder?.message && (
               <p className="text-red-600">{errors.minOrder?.message}</p>
             )}
           </div>
-          <div class="form-control w-full max-w-lg mx-auto">
-            <label class="label">
-              <span class="label-text">Available Quantity</span>
+          <div className="form-control w-full max-w-lg mx-auto">
+            <label className="label">
+              <span className="label-text">Available Quantity</span>
             </label>
             <input
               type="number"
               placeholder="Type here"
               {...register("quantity", { required: "required" })}
-              class="input input-bordered w-full max-w-lg"
+              className="input input-bordered w-full max-w-lg"
             />
             {errors.quantity?.message && (
               <p className="text-red-600">{errors.quantity?.message}</p>
             )}
           </div>
-          <div class="form-control w-full max-w-lg mx-auto">
-            <label class="label">
-              <span class="label-text">
+          <div className="form-control w-full max-w-lg mx-auto">
+            <label className="label">
+              <span className="label-text">
                 Product Price <small>(per unit)</small>
               </span>
             </label>
@@ -105,21 +105,21 @@ const AddProduct = () => {
               type="text"
               placeholder="Type here"
               {...register("price", { required: "required" })}
-              class="input input-bordered w-full max-w-lg"
+              className="input input-bordered w-full max-w-lg"
             />
             {errors.price?.message && (
               <p className="text-red-600">{errors.price?.message}</p>
             )}
           </div>
 
-          <div class="form-control w-full max-w-lg mx-auto">
-            <label class="label">
-              <span class="label-text">Product Image</span>
+          <div className="form-control w-full max-w-lg mx-auto">
+            <label className="label">
+              <span className="label-text">Product Image</span>
             </label>
             <input
               type="file"
               {...register("postedImg", { required: "required" })}
-              class="input input-bordered w-full max-w-lg"
+              className="input input-bordered w-full max-w-lg"
             />
             {errors.postedImg?.message && (
               <p className="text-red-600">{errors.postedImg?.message}</p>

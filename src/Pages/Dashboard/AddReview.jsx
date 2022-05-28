@@ -52,61 +52,61 @@ const AddReview = () => {
       <div className="lg:w-1/2 mx-auto">
         <h4 className="text-xl text-center mt-5">Add Review</h4>
         <form onSubmit={handleSubmit(handleReview)}>
-          <div class="form-control w-full max-w-lg mx-auto">
-            <label class="label">
-              <span class="label-text">Name</span>
+          <div className="form-control w-full max-w-lg mx-auto">
+            <label className="label">
+              <span className="label-text">Name</span>
             </label>
             <input
               type="text"
               disabled
               {...register("reviewerName", { required: "required" })}
-              class="input input-bordered w-full max-w-lg"
+              className="input input-bordered w-full max-w-lg"
             />
             {errors.reviewerName?.message && (
               <p className="text-red-600">{errors.reviewerName?.message}</p>
             )}
           </div>
-          <div class="form-control w-full max-w-lg mx-auto">
-            <label class="label">
-              <span class="label-text">Email</span>
+          <div className="form-control w-full max-w-lg mx-auto">
+            <label className="label">
+              <span className="label-text">Email</span>
             </label>
             <input
               type="email"
               disabled
               {...register("reviewerEmail", { required: "required" })}
-              class="input input-bordered w-full max-w-lg"
+              className="input input-bordered w-full max-w-lg"
             />
             {errors.reviewerEmail?.message && (
               <p className="text-red-600">{errors.reviewerEmail?.message}</p>
             )}
           </div>
-          <div class="form-control w-full max-w-lg mx-auto">
-            <label class="label">
-              <span class="label-text">Description</span>
+          <div className="form-control w-full max-w-lg mx-auto">
+            <label className="label">
+              <span className="label-text">Description</span>
             </label>
             <textarea
               {...register("description", { required: "required" })}
               type="text"
-              class="textarea input-bordered w-full max-w-lg"
+              className="textarea input-bordered w-full max-w-lg"
             />
             {errors.description?.message && (
               <p className="text-red-600">{errors.description?.message}</p>
             )}
           </div>
-          <div class="form-control w-full max-w-lg mx-auto">
-            <label class="label">
-              <span class="label-text">Review Star</span>
+          <div className="form-control w-full max-w-lg mx-auto">
+            <label className="label">
+              <span className="label-text">Review Star</span>
             </label>
             <input
               type="text"
               {...register("reviewStar", { required: "required" })}
-              class="input input-bordered w-full max-w-lg"
+              className="input input-bordered w-full max-w-lg"
             />
             {errors.reviewStar?.message && (
               <p className="text-red-600">{errors.reviewStar?.message}</p>
             )}
           </div>
-          <button type="submit" class="btn btn-success my-2 w-full">
+          <button type="submit" className="btn btn-success my-2 w-full">
             Success
           </button>
         </form>
