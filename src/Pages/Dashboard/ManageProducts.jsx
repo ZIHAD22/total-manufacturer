@@ -47,7 +47,7 @@ const ManageProducts = () => {
                   <td>{product.minOrder}/unit</td>
                   <td>
                     <label
-                      for="product-delete-modal"
+                      htmlFor="product-delete-modal"
                       onClick={() => setProductId(product._id)}
                       className="btn btn-xs"
                     >

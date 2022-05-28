@@ -13,9 +13,13 @@ const ProductDeleteModal = ({ setProductId, productId, refetch }) => {
   };
   return (
     <>
-      <input type="checkbox" id="product-delete-modal" class="modal-toggle" />
-      <div class="modal modal-bottom sm:modal-middle">
-        <div class="modal-box">
+      <input
+        type="checkbox"
+        id="product-delete-modal"
+        className="modal-toggle"
+      />
+      <div className="modal modal-bottom sm:modal-middle">
+        <div className="modal-box">
           <h3 className="font-bold text-lg text-center text-red-500">
             Are you sure you want to delete this product ?
           </h3>
@@ -24,8 +28,8 @@ const ProductDeleteModal = ({ setProductId, productId, refetch }) => {
             <span className="text-red-500 font-bold"> recover</span> this
             product
           </p>
-          <div class="modal-action">
-            <label for="product-delete-modal" class="btn">
+          <div className="modal-action">
+            <label htmlFor="product-delete-modal" className="btn">
               cancel delete
             </label>
             <button onClick={handleProductDelete} className="btn">
