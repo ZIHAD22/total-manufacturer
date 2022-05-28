@@ -2,6 +2,7 @@ import React from "react";
 import TableRow from "./TableRow";
 
 const Table = ({ orders, setShowModalId }) => {
+  console.log(orders);
   return (
     <div className="mt-5">
       <div class="overflow-x-auto">
@@ -16,6 +17,7 @@ const Table = ({ orders, setShowModalId }) => {
               <th>action</th>
               <th>Payment</th>
               <th>transaction id</th>
+              <th>order status</th>
             </tr>
           </thead>
           <tbody>

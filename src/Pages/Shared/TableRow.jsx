@@ -10,6 +10,7 @@ const TableRow = ({
     totalPrice,
     paid,
     transactionId,
+    status,
   },
   setShowModalId,
   sNo,
@@ -47,6 +48,9 @@ const TableRow = ({
         ) : (
           <p className="text-success font-bold">{transactionId}</p>
         )}
+      </td>
+      <td className="text-center">
+        {status && <p className="text-success font-bold">{status}</p>}
       </td>
     </tr>
   );

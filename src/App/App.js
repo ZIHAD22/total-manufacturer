@@ -26,15 +26,20 @@ import { useState } from 'react'
 import Portfolio from '../Pages/Portfolio/Portfolio'
 import NotFound from '../Pages/Shared/NotFound'
 import Blogs from '../Pages/Blogs/Blogs'
+import Spinner from '../Pages/Shared/Spinner'
 
 function App() {
   const [isNavRefetch, setNavRefetch] = useState(false)
   const [user] = useAuthState(auth)
-  const [admin] = useAdmin(user)
+  const [admin, adminLoading] = useAdmin(user)
 
   // const navReFun = (refetch) => {
   //   setNavRefatch(refetch)
   // }
+
+  if (adminLoading) {
+    return <Spinner />
+  }
 
   return (
     <div className="max-w-[1400px] mx-auto">

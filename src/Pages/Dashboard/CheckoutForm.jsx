@@ -67,6 +67,7 @@ const CheckoutForm = ({
       toast.success("Congrats! Your Payment Success");
       const { data } = await axios.patch(`orders/user/payment/${_id}`, {
         transactionId: paymentIntent.id,
+        status: "pending",
       });
     }
   };
