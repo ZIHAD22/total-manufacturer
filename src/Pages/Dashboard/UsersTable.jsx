@@ -1,8 +1,9 @@
 import axios from "../../utility/axios";
 import React from "react";
+import Spinner from "../Shared/Spinner";
 import { toast } from "react-toastify";
 
-const UsersTable = ({ allUsers, refetch }) => {
+const UsersTable = ({ allUsers, refetch, isLoading }) => {
   const handleMakeAdmin = async (id, userName) => {
     const data = await axios.patch(`users/all/${id}`);
     if (data.status === 200) {
@@ -12,6 +13,10 @@ const UsersTable = ({ allUsers, refetch }) => {
       toast.warn("Failed To Make Admin");
     }
   };
+
+  if (isLoading) {
+    return <Spinner />;
+  }
 
   return (
     <div className="overflow-x-auto">

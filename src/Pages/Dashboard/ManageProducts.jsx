@@ -2,14 +2,23 @@ import axios from "../../utility/axios";
 import React, { useState } from "react";
 import { useQuery } from "react-query";
 import ProductDeleteModal from "./ProductDeleteModal";
+import Spinner from "../Shared/Spinner";
 
 const ManageProducts = () => {
   const [productId, setProductId] = useState("");
-  const { data: productsData, refetch } = useQuery("productsData", async () => {
+  const {
+    data: productsData,
+    refetch,
+    isLoading,
+  } = useQuery("productsData", async () => {
     const { data } = await axios.get("products");
     console.log(data);
     return data;
   });
+
+  if (isLoading) {
+    return <Spinner />;
+  }
 
   return (
     <div>
