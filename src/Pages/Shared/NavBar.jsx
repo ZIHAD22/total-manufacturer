@@ -1,14 +1,16 @@
 import axios from "../../utility/axios";
 import { signOut } from "firebase/auth";
-import React, { useEffect } from "react";
+import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useQuery } from "react-query";
 import { Link } from "react-router-dom";
 import auth from "../../firebase.init";
 import CustomLink from "./CustomLink";
+import useAdmin from "../../hooks/useAdmin";
 
 const NavBar = ({ isNavRefetch, setNavRefetch }) => {
   const [user] = useAuthState(auth);
+  const [admin] = useAdmin(user);
 
   const { data: userData, refetch } = useQuery(["userData", user], async () => {
     const { data } = await axios.get(`users/${user?.email}`);
@@ -36,7 +38,13 @@ const NavBar = ({ isNavRefetch, setNavRefetch }) => {
           </li>
         </>
       )}
-      {userData?.userName && (
+      {userData?.userName && admin ? (
+        <>
+          <li className="mx-1">
+            <CustomLink to="/dashboard">{userData?.userName}</CustomLink>
+          </li>
+        </>
+      ) : (
         <>
           <li className="mx-1">
             <CustomLink to="/dashboard/profile">

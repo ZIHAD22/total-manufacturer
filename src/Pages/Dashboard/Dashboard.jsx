@@ -23,12 +23,6 @@ const Dashboard = () => {
         <div className=" m-5">
           <Outlet />
         </div>
-        {/* <label
-          for="dashboard-drawer"
-          class="btn btn-primary drawer-button lg:hidden"
-        >
-          Open drawer
-        </label> */}
       </div>
       <div class="drawer-side ">
         <label for="dashboard-drawer" class="drawer-overlay"></label>
