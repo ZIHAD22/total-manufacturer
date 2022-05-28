@@ -9,7 +9,7 @@ const Dashboard = () => {
   const [user, loading] = useAuthState(auth);
   const [admin, adminLoading] = useAdmin(user);
 
-  console.log(admin);
+  
 
   if (loading || adminLoading) {
     return <Spinner />;

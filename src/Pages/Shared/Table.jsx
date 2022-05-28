@@ -2,7 +2,6 @@ import React from "react";
 import TableRow from "./TableRow";
 
 const Table = ({ orders, setShowModalId }) => {
-  console.log(orders);
   return (
     <div className="mt-5">
       <div className="overflow-x-auto">

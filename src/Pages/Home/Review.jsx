@@ -17,7 +17,7 @@ import Spinner from "../Shared/Spinner";
 const Review = () => {
   const { data: reviewsData, isLoading } = useQuery("reviewsData", async () => {
     const { data } = await axios.get("reviews");
-    console.log(data);
+
     return data;
   });
 

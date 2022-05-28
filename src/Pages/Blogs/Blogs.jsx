@@ -7,7 +7,6 @@ const Blogs = () => {
 
   useEffect(() => {
     axios.get("blogs").then(({ data }) => {
-      console.log(data);
       setBlogs(data);
     });
   }, []);

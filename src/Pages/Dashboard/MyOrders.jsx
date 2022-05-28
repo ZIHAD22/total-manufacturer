@@ -17,7 +17,7 @@ const MyOrders = () => {
     refetch,
   } = useQuery("orders", async () => {
     const { data } = await axios.get(`orders/user/?email=${user?.email}`);
-    console.log(data);
+
     return data;
   });
 

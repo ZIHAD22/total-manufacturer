@@ -7,7 +7,7 @@ import Spinner from "../Shared/Spinner";
 const Tools = () => {
   const { data: tools, isLoading } = useQuery("toolsData", async () => {
     const { data } = await axios.get("products/home-products");
-    console.log(data);
+
     return data;
   });
 
