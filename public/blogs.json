@@ -1,0 +1,32 @@
+[
+    {
+        "_id":1,
+        "title":"How will you improve the performance of a React Application?",
+        "description":"There is many way to improve React Application performance .Use binding functions in constructors: By adding an arrow function in a class, we add it as an object and not as the prototype property of the class. And if we use the component multiple time, there will be various instances of these functions within each object of the component. The most reliable way to use functions is to bind them with the constructor.Avoid inline style attributes: The browser often invests a lot of time rendering, when styles are implied inline. Scripting and rendering take time because the browser has to plan all the React style rules to the CSS properties. Creating a separate style.js file and importing it into the component is a faster method. Avoid extra tags by using React fragments: Using react fragments decreases the no. of additional tags and satisfies the necessity of having a single parent element in the component.Example: Using react fragments",
+        "image":"https://i.ibb.co/Ttcb2th/1-PInrah-AEk4ku-JFk-Yq-ZLig.png"
+    },
+    {
+        "_id":1,
+        "title":"What are the different ways to manage a state in a React application?",
+        "description":"There are Four Kinds of React State to Manage.Those are Local state Global state, Server state ,URL state. Local (UI) state – Local state is data we manage in one or another component. Local state is most often managed in React using the useState hook. Global (UI) state – Global state is data we manage across multiple components. Global state is necessary when we want to get and update data anywhere in our app, or in multiple components at least.Server state – Data that comes from an external server that must be integrated with our UI state. Server state is a simple concept, but can be hard to manage alongside all of our local and global UI state. URL state – Data that exists on our URLs, including the pathname and query parameters.URL state is often missing as a category of state, but it is an important one.",
+        "image":"https://i.ibb.co/4PNL29x/retina-1708x683-image-0-1967657e3078be54d78ccc4d57eae106-f763757d0bd43e58ff9976083b458547.png"
+    },
+    {
+        "_id":1,
+        "title":"How does prototypical inheritance work?",
+        "description":"Every object with its methods and properties contains an internal and hidden property known as [[Prototype]]. The Prototypal Inheritance is a feature in javascript used to add methods and properties in objects. It is a method by which an object can inherit the properties and methods of another object. Traditionally, in order to get and set the [[Prototype]] of an object, we use Object.getPrototypeOf and Object.setPrototypeOf. Nowadays, in modern language, it is being set using __proto__.",
+        "image":"https://i.ibb.co/F73NgtN/5404262147293184.png"
+    },
+    {
+        "_id":1,
+        "title":"Why you do not set the state directly in React. For example, if you have const [products, setProducts] = useState([]). Why you do not set products = [...] instead, you use the setProducts",
+        "description":"One should never update the state directly because of the following reasons. When you directly update the state, it does not change this.state immediately. Instead, it creates a pending state transition, and accessing it after calling this method will only return the present value.You will lose control of the state across all components.",
+        "image":"https://i.ibb.co/F3rbKXv/use-State-hook-twitter.png"
+    },
+    {
+        "_id":1,
+        "title":"What is a unit test? Why should write unit tests?",
+        "description":"Unit Testing is a software testing technique by means of which individual units of software i.e. group of computer program modules, usage procedures and operating procedures are tested to determine whether they are suitable for use or not. It is a testing method using which every independent modules are tested to determine if there are any issue by the developer himself. It is correlated with functional correctness of the independent modules. Unit Testing is defined as a type of software testing where individual components of a software are tested. Unit Testing of software product is carried out during the development of an application. An individual component may be either an individual function or a procedure. Unit Testing is typically performed by the developer.",
+        "image":"https://i.ibb.co/YDQZLv5/xenonstack-unit-testing-best-practices.webp"
+    }
+]

@@ -57,6 +57,9 @@ const NavBar = ({ isNavRefetch, setNavRefetch }) => {
         <CustomLink to="/portfolio">My Portfolio</CustomLink>
       </li>
       <li className="mx-1">
+        <CustomLink to="/blogs">Blogs</CustomLink>
+      </li>
+      <li className="mx-1">
         {userData?._id ? (
           <button
             className="btn btn-outline focus:bg-white focus:text-black"

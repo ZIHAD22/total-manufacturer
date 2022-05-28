@@ -25,6 +25,7 @@ import auth from '../firebase.init'
 import { useState } from 'react'
 import Portfolio from '../Pages/Portfolio/Portfolio'
 import NotFound from '../Pages/Shared/NotFound'
+import Blogs from '../Pages/Blogs/Blogs'
 
 function App() {
   const [isNavRefetch, setNavRefetch] = useState(false)
@@ -117,6 +118,7 @@ function App() {
         </Route>
 
         <Route path="/portfolio" element={<Portfolio />} />
+        <Route path="/blogs" element={<Blogs />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
