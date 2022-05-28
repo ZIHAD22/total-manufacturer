@@ -31,15 +31,7 @@ import Spinner from '../Pages/Shared/Spinner'
 function App() {
   const [isNavRefetch, setNavRefetch] = useState(false)
   const [user] = useAuthState(auth)
-  const [admin, adminLoading] = useAdmin(user)
-
-  // const navReFun = (refetch) => {
-  //   setNavRefatch(refetch)
-  // }
-
-  if (adminLoading) {
-    return <Spinner />
-  }
+  const [admin] = useAdmin(user)
 
   return (
     <div className="max-w-[1400px] mx-auto">

@@ -16,7 +16,7 @@ const ManageAllOrders = () => {
   });
 
   const handleMakeShipped = async (id) => {
-    const { data } = await axios.patch(`orders/make-shipped/${id}`, {
+    await axios.patch(`orders/make-shipped/${id}`, {
       status: "shipped",
     });
     refetch();
@@ -27,7 +27,8 @@ const ManageAllOrders = () => {
   }
   return (
     <div>
-      <div>
+      <h1 className="text-4xl text-center font-bold">Dashboard (All Orders)</h1>
+      <div className="mt-5">
         <div class="overflow-x-auto">
           <table class="table w-full text-center">
             <thead>
