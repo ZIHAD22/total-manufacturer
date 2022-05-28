@@ -1,6 +1,7 @@
 import axios from "../../utility/axios";
 import React from "react";
 import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
 
 const AddProduct = () => {
   const {
@@ -28,7 +29,10 @@ const AddProduct = () => {
       toolImg: storedImgUrl,
     };
     const { data: postedProduct } = await axios.post("products", product);
-    console.log(postedProduct);
+    if (postedProduct._id) {
+      reset();
+      toast.success("product added successfully");
+    }
   };
   return (
     <div>

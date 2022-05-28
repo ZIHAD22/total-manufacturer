@@ -23,7 +23,7 @@ const DeleteConfirmModal = ({ refetch, showModalId, setShowModalId }) => {
           </h3>
           <p className="py-4 text-center">
             You will not be able to
-            <span className="text-red-500 font-bold">recover</span> this order
+            <span className="text-red-500 font-bold"> recover</span> this order
           </p>
           <div className="modal-action">
             <label htmlFor="deleteConfirmModal" className="btn">
